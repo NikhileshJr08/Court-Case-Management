@@ -3,6 +3,20 @@ import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text(
+          'COURT CASE MANAGEMENT',
+          // style: Theme.of(context).textTheme.headline4,
+        ),
+      ),
+      body: Center(
+        child: Text(
+          'hello',
+          style: Theme.of(context).textTheme.headline1,
+        ),
+      ),
+    );
   }
 }
