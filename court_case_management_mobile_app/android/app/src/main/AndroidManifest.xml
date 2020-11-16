@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.court_case_management_mobile_app">
+    package="com.chennai_sharks.court_case_management_mobile_app">
    <application
-        android:label="court_case_management_mobile_app"
+        android:label="Court Case Management"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
