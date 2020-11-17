@@ -7,7 +7,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
-          'COURT CASE MANAGEMENT',
+          'Court Case Manager',
           // style: Theme.of(context).textTheme.headline4,
         ),
       ),
