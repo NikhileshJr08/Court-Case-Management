@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Court-Case</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Link Swiper's CSS -->
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+  <style media="screen">
+    body {
+
+      font-family: 'Lato', sans-serif;
+
+    }
+
+    #logo_bar {
+      height: 120px;
+      background-color: #dbe2ef;
+      /* For browsers that do not support gradients */
+      background-image: linear-gradient(#b2fcff, #FFFFFF);
+      padding: 13px;
+      padding-left: 35px;
+      text-align: left;
+      font-family: 'Roboto';
+
+    }
+
+    #logo_bar_img {
+
+      float: left;
+      margin-right: 40px;
+
+    }
+
+    #logo_text {
+
+      font-family: 'Lato', sans-serif;
+      padding-top: 20px;
+      font-size: 45px;
+      width: auto;
+      height: 100px;
+
+    }
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: #e4f9ff;
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      object-fit: contain;
+      width: 85%;
+      height: 340px;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+
+    }
+
+    .card-img-top {
+
+      width: 55%;
+      height: 175px;
+      align-self: center;
+
+    }
+
+    .middle-container {
+
+      font-size: 18px;
+      margin-top: 10px;
+      background-color: #393e46;
+      padding: 100px 0px;
+
+    }
+
+    .card-deck {
+
+      width: 80%;
+      margin: 10px auto;
+
+    }
+
+    .card2img {
+
+      height: 60px;
+      width: 60px;
+      display: inline-block;
+      padding: 5px;
+      float: left;
+    }
+
+
+    .middle-container a {
+
+      display: flex;
+      color: black;
+      padding: 15px;
+      text-decoration: none;
+      text-align: center;
+
+    }
+
+    .card-title {
+
+      text-align: center;
+      padding-bottom: 10px;
+      text-decoration: underline;
+
+    }
+
+    .footer1 {
+
+      background-color: #1a1c20;
+      height: 350px;
+      color: white;
+
+    }
+
+    .footer1-content {
+
+      padding: 100px;
+      align-items: center;
+
+    }
+
+
+  </style>
+
+
+</head>
+
+<body>
+
+
+  <div id="logo_bar">
+    <a href="#">
+      <img id="logo_bar_img" src="static/india_logo.png" alt="logo" style="width:90px; height: 90px;">
+    </a>
+    <h1 id="logo_text">Madras High Court</h1>
+
+  </div>
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
+    <!-- Brand/logo -->
+
+
+    <!-- links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Hon'ble Judges</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Subordinate Courts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact Us</a>
+      </li>
+    </ul>
+  </nav>
+
+
+  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" style="background-image:url(static/slider6.jpg)"></div>
+      <div class="swiper-slide" style="background-image:url(static/slider2.jpg)"></div>
+      <div class="swiper-slide" style="background-image:url(static/slider3.jpg)"></div>
+      <div class="swiper-slide" style="background-image:url(static/slider4.jpg)"></div>
+      <div class="swiper-slide" style="background-image:url(static/slider5.jpg)"></div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <div class="middle-container">
+    <div class="card-deck shadow-lg p-3 mb-5 rounded">
+      <div class="card" style="width: 18rem;">
+        <img src="static/ManuNeedhi.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">Madras High Court</h3>
+          <p class="card-text">The High Court of Judicature at Madras, one of the three High Courts in India established at the Presidency Towns by Letters Patent granted by Her Majesty Queen Victoria, bearing date 26th June 1862</p>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h3 class="card-title">Hon'ble Judges</h3>
+          <ul type="none" class="list-group">
+            <li>
+              <p class="card-text"><img src="https://www.flaticon.com/svg/static/icons/svg/2540/2540752.svg" class="card-img-top card2img" alt="..."> <a href="#">Chief Justice</a> </p>
+            </li>
+            <li>
+              <p class="card-text"><img src="https://www.flaticon.com/svg/static/icons/svg/2540/2540752.svg" class="card-img-top card2img" alt="..."> <a href="#">Present Judjes</a> </p>
+            </li>
+            <li>
+              <p class="card-text"><img src="https://www.flaticon.com/svg/static/icons/svg/2540/2540752.svg" class="card-img-top card2img" alt="..."> <a href="#">Speeches by Judges</a> </p>
+            </li>
+            <li>
+              <p class="card-text"><img src="https://www.flaticon.com/svg/static/icons/svg/2540/2540752.svg" class="card-img-top card2img" alt="..."> <a href="#">Former Chief Justices</a> </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h3 class="card-title">Services</h3>
+          <ul type="none" class="list-group">
+            <li>
+              <p class="card-text"><img src="https://www.flaticon.com/svg/static/icons/svg/3089/3089761.svg" class="card-img-top card2img" alt="..."> <a href="#">Cause List</a> </p>
+            </li>
+            <li>
+              <p class="card-text"><img src="https://www.flaticon.com/svg/static/icons/svg/3089/3089761.svg" class="card-img-top card2img" alt="..."> <a href="#">Judgments</a> </p>
+            </li>
+            <li>
+              <p class="card-text"><img src="https://www.flaticon.com/svg/static/icons/svg/3089/3089761.svg" class="card-img-top card2img" alt="..."> <a href="#">Status of Cases</a> </p>
+            </li>
+            <li>
+              <p class="card-text"><img src="https://www.flaticon.com/svg/static/icons/svg/3089/3089761.svg" class="card-img-top card2img" alt="..."> <a href="#">Daily Orders</a> </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer1">
+    <div class="footer1-content">
+      <h2>Madras High Court</h2>
+      <p>Tel : 91 - 044 - 25301000 <br>
+          © Content Owned</p>
+    </div>
+  </div>
+
+
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 90,
+        stretch: 0,
+        depth: 350,
+        modifier: 1,
+        slideShadows: true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  </script>
+
+</body>
+
+</html>
