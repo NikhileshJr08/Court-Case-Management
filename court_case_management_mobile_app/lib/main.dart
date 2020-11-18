@@ -1,8 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import './screens/home_screen.dart';
+import './screens/loading_screen.dart';
+import './providers/auth.dart';
+import './screens/auth_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -29,7 +36,19 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: HomeScreen(),
+      home: StreamBuilder<User>(
+        stream: Auth.checkUserLoggedIn(),
+        builder: (context, userSnapshot) {
+          if (userSnapshot.connectionState == ConnectionState.waiting)
+            return LoadingScreen();
+          else {
+            if (userSnapshot.hasData)
+              return HomeScreen();
+            else
+              return AuthScreen();
+          }
+        },
+      ),
     );
   }
 }
