@@ -8,14 +8,20 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Court Case Manager',
-          // style: Theme.of(context).textTheme.headline4,
         ),
       ),
-      body: Center(
-        child: Text(
-          'hello',
-          style: Theme.of(context).textTheme.headline1,
-        ),
+      body: Column(
+        children: [
+          Center(
+            child: Text(
+              'hello',
+              style: Theme.of(context).textTheme.headline1,
+            ),
+          ),
+          RaisedButton(
+            onPressed: () => print('nlsk'),
+          )
+        ],
       ),
     );
   }
