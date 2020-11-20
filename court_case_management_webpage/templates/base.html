@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Court-Case</title>
+  <title>Court-Case Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -21,6 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
   <style media="screen">
+
     body {
 
       font-family: 'Lato', sans-serif;
@@ -54,6 +55,75 @@
       width: auto;
       height: 100px;
 
+    }
+
+    .search-container{
+
+      background: #393e46;
+      height: 30px;
+      border-radius: 30px;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.8s;
+      box-shadow: 4px 4px 6px 0 rgba(255,255,255,.3), -4px -4px 6px 0 rgba(116,125,136,.2), inset -4px -4px 6px 0 rgba(255,255,255,.2), inset 4px 4px 6px 0 rgba(0,0,0,.2);
+      float: right;
+      margin-right: 35px;
+      margin-top: 30px;
+
+    }
+
+    .search-container:hover>.search-input {
+      width: 300px;
+    }
+
+    .search-container .search-input {
+
+      background: transparent;
+      border: none;
+      outline: none;
+      width: 0px;
+      font-weight: 500;
+      font-size: 16px;
+      transition: 0.8s;
+
+    }
+
+    .search-container .search-btn .fas{
+      color: #5cbdbb;
+    }
+
+    @keyframes hoverShake {
+
+    0% {transform: skew(0deg, 0deg);}
+    25% {transform: skew(5deg, 5deg);}
+    75% {transform: skew(-5deg, -5deg);}
+    100% {transform: skew(0deg, 0deg);}
+
+    }
+
+    .search-container:hover {
+
+    animation: hoverShake 0.30s linear 3;
+
+    }
+
+
+    .dropdown-item {
+
+      color: white;
+
+    }
+
+    .dropdown:hover>.dropdown-menu {
+      display: block;
+    }
+
+    .dropdown>.dropdown-toggle:active {
+      /*Without this, clicking will make it sticky*/
+      pointer-events: none;
     }
 
     .swiper-container {
@@ -140,8 +210,6 @@
       align-items: center;
 
     }
-
-
   </style>
 
 
@@ -150,17 +218,22 @@
 <body>
 
 
+  <!-- Brand/logo -->
   <div id="logo_bar">
     <a href="#">
-      <img id="logo_bar_img" src="static/india_logo.png" alt="logo" style="width:90px; height: 90px;">
+      <img id="logo_bar_img" src="../static/india_logo.png" alt="logo" style="width:90px; height: 90px;">
     </a>
+    <div class="search-container">
+      <input type="text" name="search" placeholder="Search..." class="search-input">
+        <a href="#" class="search-btn">
+          <i class="fas fa-search"></i>
+        </a>
+    </div>
     <h1 id="logo_text">Madras High Court</h1>
-
   </div>
 
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
-    <!-- Brand/logo -->
-
 
     <!-- links -->
     <ul class="navbar-nav">
@@ -170,8 +243,12 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Hon'ble Judges</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Services</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">Case Services</a>
+        <div class="dropdown-menu bg-dark">
+          <a class="dropdown-item" href="#">Case details</a>
+          <a class="dropdown-item" href="#">Case hearings</a>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Subordinate Courts</a>
@@ -182,15 +259,14 @@
     </ul>
   </nav>
 
-
   <!-- Swiper -->
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide" style="background-image:url(static/slider6.jpg)"></div>
-      <div class="swiper-slide" style="background-image:url(static/slider2.jpg)"></div>
-      <div class="swiper-slide" style="background-image:url(static/slider3.jpg)"></div>
-      <div class="swiper-slide" style="background-image:url(static/slider4.jpg)"></div>
-      <div class="swiper-slide" style="background-image:url(static/slider5.jpg)"></div>
+      <div class="swiper-slide" style="background-image:url(../static/slider6.jpg)"></div>
+      <div class="swiper-slide" style="background-image:url(../static/slider2.jpg)"></div>
+      <div class="swiper-slide" style="background-image:url(../static/slider3.jpg)"></div>
+      <div class="swiper-slide" style="background-image:url(../static/slider4.jpg)"></div>
+      <div class="swiper-slide" style="background-image:url(../static/slider5.jpg)"></div>
     </div>
     <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
@@ -199,7 +275,7 @@
   <div class="middle-container">
     <div class="card-deck shadow-lg p-3 mb-5 rounded">
       <div class="card" style="width: 18rem;">
-        <img src="static/ManuNeedhi.png" class="card-img-top" alt="...">
+        <img src="../static/ManuNeedhi.png" class="card-img-top" alt="...">
         <div class="card-body">
           <h3 class="card-title">Madras High Court</h3>
           <p class="card-text">The High Court of Judicature at Madras, one of the three High Courts in India established at the Presidency Towns by Letters Patent granted by Her Majesty Queen Victoria, bearing date 26th June 1862</p>
@@ -246,14 +322,14 @@
     </div>
   </div>
 
+  <!-- Footer -->
   <div class="footer1">
     <div class="footer1-content">
       <h2>Madras High Court</h2>
       <p>Tel : 91 - 044 - 25301000 <br>
-          © Content Owned</p>
+        © Content Owned</p>
     </div>
   </div>
-
 
 
   <!-- Swiper JS -->
@@ -279,6 +355,11 @@
     });
   </script>
 
+{% block content %}
+
+{% endblock %}
 </body>
 
 </html>
+
+<!-- url_for('login') -->
