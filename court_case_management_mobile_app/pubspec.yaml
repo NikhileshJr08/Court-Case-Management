@@ -28,6 +28,9 @@ dependencies:
   firebase_auth: ^0.18.3
   google_sign_in: ^4.5.6
   auto_size_text: ^2.1.0
+  http: ^0.12.2
+  connectivity: ^2.0.2
+  fluttertoast: ^7.1.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -59,6 +62,7 @@ flutter:
   assets:
     - assets/images/icon_court.png
     - assets/images/google.png
+    - assets/images/court_appbar.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
