@@ -64,6 +64,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0-nullsafety.5"
+<<<<<<< HEAD
   connectivity:
     dependency: "direct main"
     description:
@@ -92,6 +93,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.6"
+=======
+>>>>>>> main
   convert:
     dependency: transitive
     description:
@@ -275,6 +278,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.0-nullsafety.3"
+<<<<<<< HEAD
   pedantic:
     dependency: transitive
     description:
@@ -282,6 +286,8 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.9.2"
+=======
+>>>>>>> main
   petitparser:
     dependency: transitive
     description:

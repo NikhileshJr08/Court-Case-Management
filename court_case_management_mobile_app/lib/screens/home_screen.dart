@@ -5,22 +5,43 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text(
-          'Court Case Manager',
-        ),
-      ),
-      body: Column(
-        children: [
-          Center(
-            child: Text(
-              'hello',
-              style: Theme.of(context).textTheme.headline1,
+      body: CustomScrollView(
+        physics: const BouncingScrollPhysics(),
+        slivers: [
+          SliverAppBar(
+            expandedHeight: MediaQuery.of(context).size.height * 0.29 -
+                MediaQuery.of(context).padding.top -
+                MediaQuery.of(context).padding.bottom,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                'Court Case Manager',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              centerTitle: true,
+              stretchModes: [
+                StretchMode.zoomBackground,
+                StretchMode.blurBackground,
+                StretchMode.fadeTitle,
+              ],
+              background: Image.asset(
+                'assets/images/court_appbar.jpg',
+                fit: BoxFit.cover,
+              ),
             ),
+            floating: true,
+            pinned: true,
+            stretch: true,
           ),
-          RaisedButton(
-            onPressed: () => print('nlsk'),
-          )
+          SliverList(
+            delegate: SliverChildListDelegate([
+              SizedBox(
+                height: 1000,
+              ), //will be removed just placeholder
+            ]),
+          ),
         ],
       ),
     );
