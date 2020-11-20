@@ -1,5 +1,8 @@
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:connectivity/connectivity.dart';
+
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Auth {
   static Stream<User> checkUserLoggedIn() {
@@ -8,19 +11,24 @@ class Auth {
 
   static Future<void> signIn() async {
     try {
-      FirebaseAuth.instance.authStateChanges().listen((event) {
-        print(event);
-      });
-      final GoogleSignInAccount googleUser = await GoogleSignIn().signIn();
+      var connectivityResult = await (Connectivity().checkConnectivity());
+      if (connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi) {
+        final GoogleSignInAccount googleUser = await GoogleSignIn().signIn();
 
-      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+        final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
 
-      final GoogleAuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
+        final GoogleAuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
+        );
 
-      await FirebaseAuth.instance.signInWithCredential(credential);
+        await FirebaseAuth.instance.signInWithCredential(credential);
+      } else {
+        Fluttertoast.showToast(
+          msg: 'Connect to Internet in order to Sign-In',
+          toastLength: Toast.LENGTH_LONG,
+        );
+      }
     } catch (error) {
       print('error:$error');
     }
