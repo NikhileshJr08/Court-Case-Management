@@ -7,6 +7,8 @@ import './screens/loading_screen.dart';
 import './providers/auth.dart';
 import './screens/auth_screen.dart';
 
+//to build the apk for release run the command flutter build apk --split-per-abi
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
