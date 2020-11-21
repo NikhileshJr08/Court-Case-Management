@@ -94,7 +94,7 @@ class AuthScreen extends StatelessWidget {
                 elevation: 3,
                 onPressed: () async {
                   //login code
-                  await Auth.signIn();
+                  await Auth.signIn(context);
                 },
                 child: Row(
                   children: [
