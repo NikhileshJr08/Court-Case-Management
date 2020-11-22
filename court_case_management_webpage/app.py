@@ -41,34 +41,45 @@ def login():
     assert resp.ok, resp.text
 
     form = Case()
-    #insert code for dynamically adding choices for both Lawyers
+    sql = "SELECT id , name FROM lawyers ;"
+    mycursor.execute(sql)
+    lawyers = mycursor.fetchall()
+    form.prosecutor.choices = lawyers
+    form.defender.choices = lawyers
+
     if form.validate_on_submit():
-        pass
-        # insert code to add form data to db
-            #remember to implement SESSION protocol for u_id
+
+        sql = "INSERT INTO cases (u_id, party_name, prosecutor, defendant, defender, fir_no, case_type, status, verdict) VALUES('"+ +"','"+form.party_name.data+"','"+form.prosecutor.data+"','"+form.defendant.data+"','"+form.defender.data+"','"+form.fir_no.data+"','"+form.case_type.data+"','"+form.status.data+"','"+form.verdict.data+"');"
+        mycursor.execute(sql)
+        db.commit()
+        #remember to implement SESSION protocol for u_id
 
     sql = "SELECT id, fir_no FROM cases WHERE u_id ='"+resp.json()["id"]+"';"
     mycursor.execute(sql)
     cases = mycursor.fetchall()
-    return render_template("profile.html",profile = resp.json()["profile"] ,cases = cases , form)
+    return render_template("profile.html",profile = resp.json()["profile"] ,cases = cases , form=form)
 
 @blueprint.session.authorization_required
 @app.route('/case/<cid>')
 def case(cid):
-    update =CaseUpdate()
+    update = CaseUpdate()
     if update.validate_on_submit():
-            #remember to implement SESSION protocol for c_id
+        sql = "UPDATE cases SET status = '"+update.status.data+"' verdict = '"+update.verdict.data+"' WHERE c_id = "+cid+";"
+        mycursor.execute(sql)
+        db.commit()
         pass
 
     hform = Hearing()
     if hform.validate_on_submit():
-            #remember to implement SESSION protocol for c_id
+        sql = "INSERT INTO hearings (date , judge, start ,end ,location, next, c_id ) VALUES ('"+hform.date.data+"','"+hform.judge.data+"','"+hform.start.data+"','"+hform.end.data+"','"+hform.location.data+"','"+hform.next.data+"','"+hform.c_id.data+"') ;"
+        mycursor.execute(sql)
+        db.commit()
         pass
 
     sql = "SELECT * FROM cases WHERE id ="+cid+";"
     mycursor.execute(sql)
     case = mycursor.fetchall()
-    sql = "SELECT * FROM hearings WHERE id ="+cid+";"
+    sql = "SELECT * FROM hearings WHERE cid ="+cid+";"
     mycursor.execute(sql)
     hearings= mycursor.fetchall()
     render_template("caseview.html", case = case ,hearings = hearings, update = update ,hform = hform )
@@ -76,16 +87,14 @@ def case(cid):
 
 @app.route('/search/<cid>')
 def search(cid):
-    # insert code to retrieve case details and Hearings
+    # code to retrieve case details and Hearings
     sql = "SELECT * FROM cases WHERE id ="+cid+";"
     mycursor.execute(sql)
     case = mycursor.fetchall()
-    sql = "SELECT * FROM hearings WHERE id ="+cid+";"
+    sql = "SELECT * FROM hearings WHERE cid ="+cid+";"
     mycursor.execute(sql)
     hearings= mycursor.fetchall()
     render_template("caseview.html" , case = case , hearing = hearing)
-
-
 
 
 
