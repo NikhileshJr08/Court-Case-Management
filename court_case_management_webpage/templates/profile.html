@@ -1,4 +1,125 @@
-{% extends 'base.html' %}
-{% block content %}
+<!doctype html>
+<html lang="en">
 
-{% endblock %}
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <!-- Font links -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+  <style media="screen">
+    body {
+
+      padding: 50px;
+      font-family: 'Lato', sans-serif;
+
+    }
+
+
+    .outer-container {
+
+      background-color: #bedbbb;
+      padding: 30px;
+
+    }
+
+    .inner-container {
+
+      background-color: #8db596;
+      height: 100% !important;
+      padding: 25px;
+      min-height: 275px;
+
+    }
+
+    .userDetails img {
+
+      border-radius: 50% !important;
+      float: left;
+      margin-right: 50px;
+      width: 225px;
+      height: 225px;
+
+    }
+
+    .userDetails h5 {
+
+      padding-top: 35px;
+      font-size: 20px;
+
+    }
+  </style>
+
+  <title>Profile</title>
+</head>
+
+<body>
+
+  <div class="outer-container shadow-lg mb-5 rounded">
+    <div class="inner-container shadow-sm rounded">
+      <div class="userDetails">
+        <img src="../static/slider2.jpg" class="shadow-md rounded" alt="Profile Picture">
+        <ul type="none">
+          <li>
+            <h5>Name: Nikhi </h5>
+          </li>
+          <li>
+            <h5>Email: nikhileshjr08@gmail.com</h5>
+          </li>
+          <li>
+            <h5>Phone: 9176550708 </h5>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <div class="inner-container shadow-sm rounded">
+      <div class="caseDetails">
+        <h2>Your Cases: </h2>
+        <table class="table table-striped table-borderless table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
