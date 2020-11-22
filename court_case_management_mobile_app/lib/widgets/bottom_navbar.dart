@@ -1,6 +1,8 @@
-import 'package:court_case_management_mobile_app/providers/auth.dart';
+import 'package:court_case_management_mobile_app/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+import '../providers/auth.dart';
 
 class BottomBar extends StatelessWidget {
   @override
@@ -30,7 +32,7 @@ class BottomBar extends StatelessWidget {
                 iconSize: 30.0,
                 icon: Icon(
                   Icons.home_outlined,
-                  color: const Color(0xFF3700b3),
+                  color: const Color(0xFF6794db),
                 ),
                 onPressed: () {},
                 splashRadius: 25,
@@ -39,11 +41,19 @@ class BottomBar extends StatelessWidget {
             Container(
               margin: const EdgeInsets.only(right: 25.0),
               child: PopupMenuButton(
+                icon: Icon(
+                  Icons.more_horiz_outlined,
+                  color: Color(0xFF6794db),
+                ),
                 onSelected: (value) async {
                   if (value == 1) {
                     final closeLoadingAfterLogout = context.showLoading(msg: 'Logging out...');
-                    Future.delayed(1.seconds, closeLoadingAfterLogout);
-                    await Auth.signout();
+                    await Future.delayed(1.seconds, closeLoadingAfterLogout);
+                    if (ModalRoute.of(context).settings.name == ProfileScreen.routeName) {
+                      Navigator.of(context).pop();
+                      await Auth.signout();
+                    } else
+                      await Auth.signout();
                   }
                 },
                 itemBuilder: (ctx) {
