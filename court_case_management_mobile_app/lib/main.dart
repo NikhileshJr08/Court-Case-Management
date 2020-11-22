@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import './screens/profile_screen.dart';
 import './screens/home_screen.dart';
 import './screens/loading_screen.dart';
 import './providers/auth.dart';
@@ -51,6 +52,9 @@ class MyApp extends StatelessWidget {
           }
         },
       ),
+      routes: {
+        ProfileScreen.routeName: (ctx) => ProfileScreen(),
+      },
     );
   }
 }

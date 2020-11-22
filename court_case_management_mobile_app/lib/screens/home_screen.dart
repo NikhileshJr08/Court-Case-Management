@@ -1,7 +1,7 @@
-import 'package:court_case_management_mobile_app/widgets/bottom_navbar.dart';
-import 'package:court_case_management_mobile_app/widgets/floating_action_button.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/bottom_navbar.dart';
+import '../widgets/floating_action_button.dart';
 import '../widgets/title_bar.dart';
 
 class HomeScreen extends StatelessWidget {
