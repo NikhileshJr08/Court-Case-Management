@@ -11,7 +11,7 @@ class FloatingButton extends StatelessWidget {
         if (ModalRoute.of(context).settings.name == ProfileScreen.routeName) return;
         Navigator.of(context).pushNamed(ProfileScreen.routeName);
       },
-      elevation: 2,
+      elevation: 10,
       tooltip: 'Profile Page',
       backgroundColor: Colors.white,
       heroTag: 'profile',

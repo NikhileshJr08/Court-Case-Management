@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gradients/flutter_gradients.dart';
 
+import '../widgets/my_cases_widget.dart';
 import '../widgets/bottom_navbar.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -9,16 +10,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Color(0xFF6794db),
-      //   elevation: 0,
-      //   title: Text(
-      //     'PROFILE',
-      //   ),
-      //   centerTitle: true,
-      // ),
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             Card(
@@ -94,8 +86,15 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 10),
-            Text('My Cases'),
+            SizedBox(height: 15),
+            Text(
+              'My Cases',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            MyCases(),
           ],
         ),
       ),

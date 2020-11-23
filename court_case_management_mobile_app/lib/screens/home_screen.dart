@@ -33,7 +33,9 @@ class HomeScreen extends StatelessWidget {
               pinned: false,
               stretch: false,
             ),
-            TitleBar(),
+            TitleBar(
+              title: 'Court Case Manager',
+            ),
             SliverList(
               delegate: SliverChildListDelegate(
                 [
@@ -64,6 +66,9 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 1000,
+                  ), //placeholder for scrolling
                 ],
               ),
             ),

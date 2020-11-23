@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_gradients/flutter_gradients.dart';
 
 class TitleBar extends StatelessWidget {
+  final String title;
+  TitleBar({this.title});
   @override
   Widget build(BuildContext context) {
     return SliverPersistentHeader(
@@ -10,14 +13,22 @@ class TitleBar extends StatelessWidget {
       delegate: _SliverDelegate(
         child: Card(
           shadowColor: Colors.white,
-          elevation: 5,
+          margin: EdgeInsets.zero,
+          elevation: 10,
           child: Container(
             width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+              gradient: FlutterGradients.flyHigh(
+                type: GradientType.linear,
+                tileMode: TileMode.mirror,
+              ),
+            ),
             alignment: Alignment.center,
             child: Text(
-              'Court Case Manager',
+              title,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
+                color: Colors.white,
                 fontSize: 25,
               ),
               textAlign: TextAlign.center,
