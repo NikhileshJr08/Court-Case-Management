@@ -30,7 +30,6 @@ class  Caselist(Resource):
 
     def post(self,uid):   # Used to add another case with User id
         pass
-
 class Hearings(Resource):
     def get(self,cid):    # Returns all hearings of that Case id
         sql = "SELECT * FROM hearings WHERE cid ="+cid+";"

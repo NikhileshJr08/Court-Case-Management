@@ -8,7 +8,7 @@ class Case(FlaskForm):
     defendant = StringField("Defendant: "  validators=[InputRequired() , Length = 20 ])
     defender =  SelectField("Defense Lawyer" , coerce = int , validators=InputRequired())
     fir_no = IntegerField("Fir No:" , validators=[InputRequired() , Length = 10 ] )
-    case type = StringField("Case type:" validators=[InputRequired() , Length = 20 ] ))
+    case_type = StringField("Case type:" validators=[InputRequired() , Length = 20 ] ))
     status =  StringField("Case Status:" validators=[InputRequired() , Length = 10 ] ))
     verdict = TextField("Verdict:")
 
