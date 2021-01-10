@@ -21,7 +21,6 @@
 
     }
 
-
     .outer-container {
 
       background-color: #bedbbb;
@@ -72,15 +71,16 @@
       <div class="userDetails">
         <img src="../static/slider2.jpg" class="shadow-md rounded" alt="Profile Picture">
         <ul type="none">
+             <li>
+              <h5> <img src= {{ profile[ImageUrl] }} alt=""> </h5>
+            </li>
           <li>
-            <h5>Name: Nikhi</h5>
+            <h5>{{ profile[Name] }}</h5>
           </li>
           <li>
-            <h5>Email: nikhileshjr08@gmail.com</h5>
+            <h5> {{ profile[Email]}}</h5>
           </li>
-          <li>
-            <h5>Phone: 9176550708 </h5>
-          </li>
+
         </ul>
       </div>
     </div>
@@ -99,12 +99,12 @@
               <th scope="col">Link</th>
             </tr>
           </thead>
-          {% for case in result %}
+          {% for cas in result %}
           <tr>
-            <th scope="row">{{ case[0] }}</th>
-            <td>{{ case[1] }}</td>
+            <th scope="row">{{ cas[0] }}</th>
+            <td>{{ cas[1] }}</td>
             <td> <span class="glyphicon-eye-open">
-                <a href=""></a>
+                <a href="{{ url_for(case(cas[0]))}}"></a>
               </span>
             </td>
           </tr>
