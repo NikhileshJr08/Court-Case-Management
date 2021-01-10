@@ -34,7 +34,10 @@ class BottomBar extends StatelessWidget {
                   Icons.home_outlined,
                   color: const Color(0xFF6794db),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  if (ModalRoute.of(context).isFirst) return;
+                  Navigator.of(context).pop();
+                },
                 splashRadius: 25,
               ),
             ),
