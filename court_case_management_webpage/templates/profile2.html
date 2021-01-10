@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Your Profile</title></title>
+  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+  <style media="screen">
+    @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+    body {
+      background-color: #f5f4f4;
+
+    }
+
+    .wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 75%;
+      height: 75%;
+      display: flex;
+      box-shadow: 0 15px 50px 0 rgba(69, 90, 100, .08);
+    }
+
+    .wrapper .left {
+      width: 30%;
+      background: linear-gradient(to right, #01a9ac, #01dbdf);
+      padding: 35px 25px;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .wrapper .left img {
+      height: 45%;
+      width: 65%;
+      border-radius: 5px;
+      margin-bottom: 100px;
+    }
+
+    .wrapper .left h2 {
+      margin-bottom: 20px;
+      letter-spacing: 7.5px;
+      text-transform: uppercase;
+    }
+
+    .wrapper .right {
+      width: 70%;
+      background: #fff;
+      padding: 35px 35px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .wrapper .right .info,
+    .wrapper .right .projects {
+      margin-bottom: 40px;
+    }
+
+    .wrapper .right .info h3,
+    .wrapper .right .projects h3 {
+      margin-bottom: 18px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid red;
+      color: #353c4e;
+      text-transform: uppercase;
+      letter-spacing: 7.5px;
+    }
+
+    .wrapper .right .info_data,
+    .wrapper .right .projects_data {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .wrapper .right .info_data .data,
+    .wrapper .right .projects_data .data {
+      width: 75%;
+    }
+
+    .wrapper .right .info_data .data h4,
+    .wrapper .right .projects_data .data h4 {
+      color: #353c4e;
+      margin-bottom: 5px;
+    }
+
+    .wrapper .right .info_data .data p,
+    .wrapper .right .projects_data .data p {
+      font-size: 13px;
+      margin-bottom: 10px;
+      color: #919aa3;
+    }
+
+    .wrapper .social_media ul {
+      display: flex;
+    }
+
+    .wrapper .social_media ul li {
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(to right, #01a9ac, #01dbdf);
+      margin-right: 10px;
+      border-radius: 5px;
+      text-align: center;
+      line-height: 45px;
+    }
+
+    .wrapper .social_media ul li a {
+      color: #fff;
+      display: block;
+      font-size: 18px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="left">
+      <img src="https://picsum.photos/200/300" alt="user">
+      <h2>Nikhilesh</h2>
+    </div>
+    <div class="right">
+      <div class="info">
+        <h3>Information</h3>
+        <div class="info_data">
+          <div class="data">
+            <h4>Email</h4>
+            <p>nikhileshjr08@gmail.com</p>
+          </div>
+          <div class="data">
+            <h4>Phone</h4>
+            <p>9176550708</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="projects">
+        <h3>Cases</h3>
+        <div class="projects_data">
+          <div class="data">
+            <h4>Recent</h4>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+          <div class="data">
+            <h4>Most Viewed</h4>
+            <p>dolor sit amet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>
