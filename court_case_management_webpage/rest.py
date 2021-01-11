@@ -44,7 +44,7 @@ class Hearings(Resource):
         db.commit()
         pass
 
-class Case(Resource):
+class casedetail(Resource):
     def get(self,cid):    # Returns the case details using Case id
         sql = "SELECT * FROM cases WHERE id ="+cid+";"
         cursor.execute(sql)
