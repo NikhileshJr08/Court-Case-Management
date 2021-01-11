@@ -177,8 +177,8 @@
 
   <div class="wrapper">
     <div class="left">
-      <img src= {{ profile[ImageUrl] }} alt="user">
-      <h2>{{ profile[Name] }}</h2>
+      <img src= {{ profile['picture'] }} alt="user">
+      <h2>{{ profile['name'] }}</h2>
     </div>
     <div class="right">
       <div class="info">
@@ -186,7 +186,7 @@
         <div class="info_data">
           <div class="data">
             <h4>Email</h4>
-            <p>{{ profile[Email]}}</p>
+            <p>{{ profile['Email']}}</p>
           </div>
         </div>
       </div>
