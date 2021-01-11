@@ -34,7 +34,7 @@
 
     }
 
-    #logo_bar {
+    .logo_bar {
       height: 120px;
       background-color: #dbe2ef;
       /* For browsers that do not support gradients */
@@ -143,6 +143,17 @@
 
     }
 
+    .card {
+      width: 100%;
+      height: 100%;
+      background-color: red;
+      transition: transform 1s ease-in-out;
+    }
+
+    .card-deck :hover .card{
+      transform: rotateY(180deg);
+    }
+
     .card2img {
 
       height: 60px;
@@ -235,7 +246,7 @@
 
 
   <!-- Brand/logo -->
-  <div id="logo_bar">
+  <div class="logo_bar">
     <a href="#">
       <img id="logo_bar_img" src="../static/india_logo.png" alt="logo" style="width:90px; height: 90px;">
     </a>
@@ -291,13 +302,19 @@
     <div class="swiper-pagination"></div>
   </div>
 
+<!-- Middle Container -->
   <div class="middle-container">
     <div class="card-deck shadow-lg p-3 mb-5 rounded">
       <div class="card" style="width: 18rem;">
-        <img src="../static/ManuNeedhi.png" class="card-img-top" alt="...">
-        <div class="card-body">
+        <figure class="front">
+          <img src="../static/ManuNeedhi.png" class="card-img-top" alt="...">
           <h3 class="card-title">Madras High Court</h3>
-          <p class="card-text">The High Court of Judicature at Madras, one of the three High Courts in India established at the Presidency Towns by Letters Patent granted by Her Majesty Queen Victoria, bearing date 26th June 1862</p>
+        </figure>
+        <figure class="back">
+            <p class="card-text">The High Court of Judicature at Madras, one of the three High Courts in India established at the Presidency Towns by Letters Patent granted by Her Majesty Queen Victoria, bearing date 26th June 1862</p>
+        </figure>
+        <div class="card-body">
+
         </div>
       </div>
       <div class="card" style="width: 18rem;">
