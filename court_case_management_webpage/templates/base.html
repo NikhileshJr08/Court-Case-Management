@@ -24,6 +24,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <style media="screen">
 
     body {
@@ -61,59 +63,28 @@
 
     }
 
-    .search-container{
+    .pulseEffect {
 
-      background: #393e46;
-      height: 30px;
-      border-radius: 30px;
-      padding: 10px 18px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      transition: 0.8s;
-      box-shadow: 4px 4px 6px 0 rgba(255,255,255,.3), -4px -4px 6px 0 rgba(116,125,136,.2), inset -4px -4px 6px 0 rgba(255,255,255,.2), inset 4px 4px 6px 0 rgba(0,0,0,.2);
       float: right;
+      font-size: 25px;
+      text-align: right;
       margin-right: 35px;
-      margin-top: 30px;
-
-    }
-
-    .search-container:hover>.search-input {
-      width: 300px;
-    }
-
-    .search-container .search-input {
-
-      background: transparent;
+      padding: 8px 17px;
+      color: #fff;
       border: none;
-      outline: none;
-      width: 0px;
-      font-weight: 500;
-      font-size: 16px;
-      transition: 0.8s;
+      border-radius: 5px;
+      background: #393e46;
+      box-shadow: 0 0 0 0 #393e46;
+      animation: peffect 1.72s infinite
+      cubic-bezier(0.66,0,0,1);
 
     }
 
-    .search-container .search-btn .fas{
-      color: #5cbdbb;
+    @keyframes peffect {
+      to{
+        box-shadow: 0 0 0 35px rgba(255,249,230,0);
+      }
     }
-
-    @keyframes hoverShake {
-
-    0% {transform: skew(0deg, 0deg);}
-    25% {transform: skew(5deg, 5deg);}
-    75% {transform: skew(-5deg, -5deg);}
-    100% {transform: skew(0deg, 0deg);}
-
-    }
-
-    .search-container:hover {
-
-    animation: hoverShake 0.30s linear 3;
-
-    }
-
 
     .dropdown-item {
 
@@ -200,6 +171,47 @@
 
     }
 
+    .searchContainer{
+
+      height: 350px;
+      background-color: #ff0000;
+      justify-content: center;
+      position: relative;
+      border: none;
+      color: #222831;
+
+    }
+
+    .searchContainer hr{
+
+    background-color: #d0e8f2;
+    height: 1px;
+    width: 80%;
+    opacity: 80%;
+
+    }
+
+    .main{
+
+      justify-content: center;
+      position: absolute;
+      top: 30%;
+      left: 35%;
+
+
+    }
+
+    .main input{
+
+
+      border: 3px solid #222831;
+      height: 55px;
+      width: 520px;
+      border-radius: 50px;
+      padding: 0 10px;
+
+    }
+
     .footer1 {
 
       background-color: #1a1c20;
@@ -214,8 +226,8 @@
       align-items: center;
 
     }
-  </style>
 
+  </style>
 
 </head>
 
@@ -227,14 +239,9 @@
     <a href="#">
       <img id="logo_bar_img" src="../static/india_logo.png" alt="logo" style="width:90px; height: 90px;">
     </a>
-    <div class="search-container">
-      <input type="text" name="search" placeholder="Search..." class="search-input">
-        <a href="#" class="search-btn">
-          <i class="fas fa-search"></i>
-        </a>
-    </div>
-    <h1 id="logo_text">Madras High Court</h1>
+    <h1 id="logo_text">Madras High Court <button class="pulseEffect">Login</button> </h1>
   </div>
+
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center">
@@ -326,6 +333,28 @@
     </div>
   </div>
 
+  <!-- Search Bar -->
+  <div class="searchContainer">
+    <div class="main">
+      <table class="searchElementsContainer">
+        <tr>
+          <h1>Search any case using Case ID:</h1>
+        </tr>
+        <tr>
+          <h1> <hr> </h1>
+        </tr>
+        <tr>
+          <td>
+            <input class="search" type="text" name="box" placeholder="Search any cases you want...">
+          </td>
+          <td>
+            <a href="#"><i class="bi bi-search"></i></a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
   <!-- Footer -->
   <div class="footer1">
     <div class="footer1-content">
@@ -359,9 +388,13 @@
     });
   </script>
 
-{% block content %}
+  <script type="text/javascript">
 
-{% endblock %}
+    document.querySelector(".pulseEffect").style.outline = "none";
+
+    })
+
+  </script>
 </body>
 
 </html>
