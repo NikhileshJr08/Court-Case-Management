@@ -8,7 +8,7 @@ config = {
   'user': 'root',
   'password': '',
   'host': 'localhost',
-  'database': 'hospital',
+  'database': 'courthouse',
   'raise_on_warnings': True,
 }
 

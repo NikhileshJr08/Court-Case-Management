@@ -250,7 +250,15 @@
     <a href="#">
       <img id="logo_bar_img" src="../static/india_logo.png" alt="logo" style="width:90px; height: 90px;">
     </a>
-    <h1 id="logo_text">Madras High Court <button class="pulseEffect">Login</button> </h1>
+    <h1 id="logo_text">Madras High Court
+
+          {% if auth %}
+          <button class="pulseEffect"  name="button"> <a href={{ url_for('profile') }} >Profile</a> </button>
+          {% else %}
+          <button class="pulseEffect"> <a href={{url_for('login')}}></a> </button>
+          {% endif %}
+
+    </h1>
   </div>
 
 

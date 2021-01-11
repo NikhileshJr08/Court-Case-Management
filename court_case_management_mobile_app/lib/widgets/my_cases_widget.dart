@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class MyCases extends StatefulWidget {
@@ -57,17 +58,26 @@ class _MyCasesState extends State<MyCases> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Case ID',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Text(
+                        'Case ID',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                     SizedBox(
                       height: 10,
                     ),
-                    Text('owijflakjfo320'),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: AutoSizeText(
+                        'owijflakjfo320sdgasfasfasfaf',
+                        maxLines: 2,
+                      ),
+                    ),
                     SizedBox(
                       height: 10,
                     ),
@@ -89,7 +99,10 @@ class _MyCasesState extends State<MyCases> {
                     SizedBox(
                       height: 10,
                     ),
-                    Text('Dont take Engineering'),
+                    AutoSizeText(
+                      'Dont take Engineeringsdggggggggggggggggggggggggggggggg',
+                      maxLines: 3,
+                    ),
                     SizedBox(
                       height: 10,
                     ),
