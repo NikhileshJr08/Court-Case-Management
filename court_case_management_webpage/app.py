@@ -1,5 +1,5 @@
 from flask import Flask , render_template , redirect , url_for
-from flask_login import logout_user
+from flask_login import logout_user , LoginManager
 import os
 from flask_dance.contrib.google import make_google_blueprint, google
 import mysql.connector
@@ -13,7 +13,7 @@ config = {
   'user': 'root',
   'password': '',
   'host': 'localhost',
-  'database': 'hospital',
+  'database': 'courthouse',
   'raise_on_warnings': True,
 }
 
@@ -24,6 +24,8 @@ mycursor = db.cursor(buffered=True)
 
 app = Flask(__name__)
 api = Api(app)
+#login_manager = LoginManager(app)
+
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
 
@@ -41,9 +43,9 @@ api.add_resource(Lawyers,'/lawyers')
 @app.route("/")
 def index():
     if not google.authorized:
-        auth =True
-    else :
         auth = False
+    else :
+        auth = True
     return render_template("base.html" , auth = auth)
 
 @app.route('/login/google')
@@ -77,10 +79,10 @@ def profile():
         db.commit()
         #remember to implement SESSION protocol for u_id
 
-    sql = "SELECT id, fir_no FROM cases WHERE u_id ='"+resp.json()["Id"]+"';"
+    sql = "SELECT id, fir_no FROM cases WHERE u_id ='"+resp.json()["id"]+"';"
     mycursor.execute(sql)
     cases = mycursor.fetchall()
-    return render_template("profile.html",profile = resp.json()["profile"] ,result = cases , form=form)
+    return render_template("profile.html",profile = resp.json() ,result = cases , form=form)
 
 @blueprint.session.authorization_required
 @app.route('/case/<cid>' ,)
