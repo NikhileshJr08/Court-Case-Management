@@ -3,8 +3,10 @@
 
 <head>
   <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <title>Your Profile</title>
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
 
   <style media="screen">
     @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
@@ -169,6 +171,12 @@
         }
     }
 
+    #plusIcon {
+
+        margin: 15px;
+
+    }
+
   </style>
 
 </head>
@@ -192,7 +200,9 @@
       </div>
 
       <div class="projects">
-        <h3>Cases</h3>
+        <h3>Cases  <span id="plusIcon"><svg  data-bs-toggle="modal" data-bs-target="#exampleModal" width="1em" height="17px" viewBox="0 0 16 16" class="bi bi-plus-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+            </svg></h3>
         <div class="projects_data">
           <div class="data">
             <h4>Recent</h4>
@@ -218,6 +228,55 @@
     </div>
   </div>
 
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+          {{ addform.hidden_tag() }}
+          <div class="form-group">
+              {{ addform.party_name(class='form-control') }}
+          </div>
+          <div class="form-group">
+              {{ addform.prosecutor(class='form-control') }}
+          </div>
+          <div class="form-group">
+              {{ addform.defendant(class='form-control') }}
+          </div>
+          <div class="form-group">
+              {{ addform.defender(class='form-control') }}
+          </div>
+          <div class="form-group">
+              {{ addform.fir_no(class='form-control') }}
+          </div>
+          <div class="form-group">
+              {{ addform.case_type(class='form-control') }}
+          </div>
+          <div class="form-group">
+              {{ addform.status(class='form-control') }}
+          </div>
+          <div class="form-group">
+              {{ addform.verdict(class='form-control') }}
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 
 
 </body>

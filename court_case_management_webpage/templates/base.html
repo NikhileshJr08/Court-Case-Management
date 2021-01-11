@@ -24,8 +24,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
   <style media="screen">
 
     body {
@@ -123,7 +121,7 @@
 
       width: 55%;
       height: 175px;
-      align-self: center;
+      justify-content: center;
 
     }
 
@@ -146,12 +144,20 @@
     .card {
       width: 100%;
       height: 100%;
-      background-color: red;
+      background-color: white;
       transition: transform 1s ease-in-out;
+      transform-style: preserve-3d;
     }
 
-    .card-deck :hover .card{
+    .card-deck:hover .card{
       transform: rotateY(180deg);
+    }
+
+
+    .card .back {
+
+      transform: rotateY(180deg);
+
     }
 
     .card2img {
@@ -162,7 +168,6 @@
       padding: 5px;
       float: left;
     }
-
 
     .middle-container a {
 
@@ -178,7 +183,7 @@
 
       text-align: center;
       padding-bottom: 10px;
-      text-decoration: underline;
+      justify-content: center;
 
     }
 
@@ -250,15 +255,7 @@
     <a href="#">
       <img id="logo_bar_img" src="../static/india_logo.png" alt="logo" style="width:90px; height: 90px;">
     </a>
-    <h1 id="logo_text">Madras High Court
-
-          {% if auth %}
-          <button class="pulseEffect"  name="button"> <a href={{ url_for('profile') }} >Profile</a> </button>
-          {% else %}
-          <button class="pulseEffect"> <a href={{url_for('login')}}></a> </button>
-          {% endif %}
-
-    </h1>
+    <h1 id="logo_text">Madras High Court <button class="pulseEffect">Login</button> </h1>
   </div>
 
 
@@ -306,18 +303,15 @@
   <div class="middle-container">
     <div class="card-deck shadow-lg p-3 mb-5 rounded">
       <div class="card" style="width: 18rem;">
-        <figure class="front">
+        <figure class="front  card1">
           <img src="../static/ManuNeedhi.png" class="card-img-top" alt="...">
           <h3 class="card-title">Madras High Court</h3>
         </figure>
         <figure class="back">
             <p class="card-text">The High Court of Judicature at Madras, one of the three High Courts in India established at the Presidency Towns by Letters Patent granted by Her Majesty Queen Victoria, bearing date 26th June 1862</p>
         </figure>
-        <div class="card-body">
-
-        </div>
       </div>
-      <div class="card" style="width: 18rem;">
+      <div class="card card2" style="width: 18rem;">
         <div class="card-body">
           <h3 class="card-title">Hon'ble Judges</h3>
           <ul type="none" class="list-group">
@@ -336,7 +330,7 @@
           </ul>
         </div>
       </div>
-      <div class="card" style="width: 18rem;">
+      <div class="card card3" style="width: 18rem;">
         <div class="card-body">
           <h3 class="card-title">Services</h3>
           <ul type="none" class="list-group">
