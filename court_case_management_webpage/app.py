@@ -1,4 +1,5 @@
-from flask import Flask , render_template
+from flask import Flask , render_template , redirect , url_for
+from flask_login import logout_user
 import os
 from flask_dance.contrib.google import make_google_blueprint, google
 import mysql.connector
@@ -36,14 +37,29 @@ api.add_resource(Caselist, '/clist/<string:uid>')
 api.add_resource(Hearings,'/hearings/<string:cid>')
 api.add_resource(casedetail, '/casedetail/<string:cid>')
 api.add_resource(Lawyers,'/lawyers')
+
 @app.route("/")
 def index():
-    return render_template("base.html")
+    if not google.authorized:
+        auth =True
+    else :
+        auth = False
+    return render_template("base.html" , auth = auth)
 
 @app.route('/login/google')
 def login():
     if not google.authorized:
         return redirect(url_for("google.login"))
+
+@blueprint.session.authorization_required
+@app.route("/logout")
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
+
+@blueprint.session.authorization_required
+@app.route('/profile' ,)
+def profile():
     resp = google.get("/oauth2/v1/userinfo")
     assert resp.ok, resp.text
 
