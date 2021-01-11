@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:court_case_management_mobile_app/screens/case_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class MyCases extends StatefulWidget {
@@ -31,7 +32,7 @@ class _MyCasesState extends State<MyCases> {
       onTapDown: (_) => changeChangeSize(),
       onTapCancel: () => changeChangeSize(),
       onTap: () {
-        print('hello');
+        Navigator.of(context).pushNamed(CaseDetailScreen.routeName);
       },
       child: AnimatedContainer(
         curve: Curves.easeOut,
