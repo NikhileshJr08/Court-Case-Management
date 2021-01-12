@@ -61,12 +61,6 @@
 
     }
 
-    .pulseEffect a{
-
-      text-decoration: none;
-      color: white;
-    }
-
     .pulseEffect {
 
       float: right;
@@ -265,7 +259,7 @@
           {% if auth %}
           <button class="pulseEffect"><a href="{{url_for('profile')}}">Profile</a></button>
           {% else %}
-          <button class="pulseEffect"><a href="{{url_for('login')}}">Login</a></button>
+          <button class="pulseEffect"> <a href="{{url_for('login')}}">Login </a> </button>
           {% endif %}
     </h1>
   </div>
