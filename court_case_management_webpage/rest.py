@@ -62,5 +62,5 @@ class Lawyers(Resource):
         sql = "SELECT id , name FROM lawyers ;"
         cursor.execute(sql)
         lawyers = cursor.fetchall()
-        lawyers= json.dumps(lawyers)
+        lawyers= dumps(lawyers)
         return lawyers
