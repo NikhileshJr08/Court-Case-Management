@@ -124,7 +124,7 @@ class CaseDetailScreen extends StatelessWidget {
               ),
               second: buildSmallTiles(
                 context: context,
-                title: 'Case Type',
+                title: 'Case Type:',
                 value: '1234q3423423333333333333333333333333333333333333333',
               ),
             ),
