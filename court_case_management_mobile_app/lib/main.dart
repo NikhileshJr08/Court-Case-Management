@@ -1,3 +1,5 @@
+import 'package:court_case_management_mobile_app/screens/case_detail_screen.dart';
+import 'package:court_case_management_mobile_app/screens/hearing_details_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -54,6 +56,8 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         ProfileScreen.routeName: (ctx) => ProfileScreen(),
+        CaseDetailScreen.routeName: (ctx) => CaseDetailScreen(),
+        HearingScreen.routeName: (ctx) => HearingScreen(),
       },
     );
   }
