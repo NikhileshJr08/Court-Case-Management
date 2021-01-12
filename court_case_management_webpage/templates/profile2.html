@@ -194,7 +194,7 @@
         <div class="info_data">
           <div class="data">
             <h4>Email</h4>
-            <p>{{ profile['email']}}</p>
+            <p>{{ profile['id']}}</p>
           </div>
         </div>
       </div>
@@ -218,8 +218,10 @@
         </tr>
         {% for cas in result %}
           <tr>
+              <td>{{ cas[0] }}</td>
+              <td>{{ cas[1] }}</td>
               <td><span class="glyphicon-eye-open">
-                    <a href="{{ url_for(case(cas[0]))}}"></a>
+                    <a href="/case/{{ cas[0] }}"></a>
                   </span>
               </td>
           </tr>
@@ -242,35 +244,43 @@
         <form method="POST">
           {{ addform.hidden_tag() }}
           <div class="form-group">
+                {{ addform.party_name.label }}
               {{ addform.party_name(class='form-control') }}
           </div>
           <div class="form-group">
+                {{ addform.prosecutor.label }}
               {{ addform.prosecutor(class='form-control') }}
           </div>
           <div class="form-group">
+                {{ addform.defendant.label }}
               {{ addform.defendant(class='form-control') }}
           </div>
           <div class="form-group">
+                {{ addform.defender.label }}
               {{ addform.defender(class='form-control') }}
           </div>
           <div class="form-group">
+                {{ addform.fir_no.label }}
               {{ addform.fir_no(class='form-control') }}
           </div>
           <div class="form-group">
+                {{ addform.case_type.label }}
               {{ addform.case_type(class='form-control') }}
           </div>
           <div class="form-group">
+                {{ addform.status.label }}
               {{ addform.status(class='form-control') }}
           </div>
           <div class="form-group">
+                {{ addform.verdict.label }}
               {{ addform.verdict(class='form-control') }}
           </div>
-        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        {{ addform.submit(class="btn btn-primary") }}
       </div>
+      </form>
     </div>
   </div>
 </div>
