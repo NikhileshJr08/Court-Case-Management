@@ -85,18 +85,18 @@ def profile():
     return render_template("profile2.html",profile = resp.json() ,result = cases , addform=form)
 
 @blueprint.session.authorization_required
-@app.route('/case/<cid>' ,methods=['POST'])
+@app.route('/case/<cid>' ,methods=['POST','GET'])
 def case(cid):
     update = CaseUpdate()
     if update.validate_on_submit():
-        sql = "UPDATE cases SET status = '"+update.status.data+"' verdict = '"+update.verdict.data+"' WHERE c_id = "+cid+";"
+        sql = "UPDATE cases SET status = '"+update.status.data+"' verdict = '"+update.verdict.data+"' WHERE id = '"+cid+"';"
         mycursor.execute(sql)
         db.commit()
         pass
 
     hform = Hearing()
     if hform.validate_on_submit():
-        sql = "INSERT INTO hearings (date , judge, start ,end ,location, next, c_id ) VALUES ('"+hform.date.data+"','"+hform.judge.data+"','"+hform.start.data+"','"+hform.end.data+"','"+hform.location.data+"','"+hform.next.data+"','"+cid+"') ;"
+        sql = "INSERT INTO hearings (date , judge, start ,end ,location, next_date, c_id ) VALUES ('"+str(hform.date.data)+"','"+hform.judge.data+"','"+str(hform.start.data)+"','"+str(hform.end.data)+"','"+hform.location.data+"','"+str(hform.next.data)+"','"+cid+"') ;"
         mycursor.execute(sql)
         db.commit()
         pass
@@ -104,10 +104,19 @@ def case(cid):
     sql = "SELECT * FROM cases WHERE id ='"+cid+"';"
     mycursor.execute(sql)
     cases = mycursor.fetchall()
-    sql = "SELECT * FROM hearings WHERE cid ='"+cid+"';"
+    sql = "SELECT * FROM hearings WHERE c_id ='"+cid+"';"
     mycursor.execute(sql)
     hearings= mycursor.fetchall()
-    return render_template("caseview.html", cases = cases ,hearings = hearings, update = update ,hform = hform )
+    sql = "SELECT * FROM lawyers WHERE id ='"+str(cases[0][3])+"';"
+    mycursor.execute(sql)
+    x=mycursor.fetchall()
+    l=[]
+    l.append(x[0])
+    sql = "SELECT * FROM lawyers WHERE id ='"+str(cases[0][5])+"';"
+    mycursor.execute(sql)
+    x=mycursor.fetchall()
+    l.append(x[0])
+    return render_template("caseview.html", cases = cases ,hearings = hearings, update = update ,hform = hform ,l=l)
 
 
 @app.route('/search/<cid>')
