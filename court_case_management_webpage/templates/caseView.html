@@ -165,9 +165,10 @@
   <div class="wrapper">
     <div class="right">
       <div class="info">
-        <h3>Information</h3>
+        <h3>Case Information</h3>   <button type="button" class="btn btn-secondary"  data-bs-toggle="modal" data-bs-target="#exampleModal" >Update case Status</button>
         <div class="info_data">
           <div class="data">
+                {% for c in cases %}
                <h4>Case ID:</h4>
                <p>{{ c[0] }}</p>
                <h4>Party Name</h4>
@@ -186,11 +187,18 @@
                <p>{{ c[8] }}</p>
                <h4>Verdict</h4>
                <p>{{ c[9] }}</p>
-
+               {% endfor %}
           </div>
         </div>
       </div>
 
+      <div class="projects">
+        <h3>Hearings  <span id="plusIcon"> <svg  data-bs-toggle="modal" data-bs-target="#caseHearingModal" width="1em" height="17px" viewBox="0 0 16 16" class="bi bi-plus-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+              </svg>
+        </h3>
+
+      </div>
       <table>
         <tr id="header">
             <th>ID</th>
@@ -213,15 +221,6 @@
           </tr>
         {% endfor %}
     </table>
-
-    <h5>Add hearings ---> <span id="plusIcon"> <svg  data-bs-toggle="modal" data-bs-target="#caseHearingModal" width="1em" height="17px" viewBox="0 0 16 16" class="bi bi-plus-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
-          </svg>
-    </h5>
-
-    <button type="button" class="btn btn-secondary"  data-bs-toggle="modal" data-bs-target="#exampleModal" >Update case Status</button>
-
-
 
     </div>
   </div>

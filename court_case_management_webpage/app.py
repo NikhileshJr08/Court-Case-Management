@@ -89,7 +89,7 @@ def profile():
 def case(cid):
     update = CaseUpdate()
     if update.validate_on_submit():
-        sql = "UPDATE cases SET status = '"+update.status.data+"' verdict = '"+update.verdict.data+"' WHERE id = '"+cid+"';"
+        sql = "UPDATE cases SET status = '"+update.status.data+"', verdict = '"+update.verdict.data+"' WHERE id = '"+cid+"';"
         mycursor.execute(sql)
         db.commit()
         pass
@@ -116,7 +116,7 @@ def case(cid):
     mycursor.execute(sql)
     x=mycursor.fetchall()
     l.append(x[0])
-    return render_template("caseview.html", cases = cases ,hearings = hearings, update = update ,hform = hform ,l=l)
+    return render_template("caseView.html", cases = cases ,hearings = hearings, update = update ,hform = hform ,l=l)
 
 
 @app.route('/search/<cid>')
