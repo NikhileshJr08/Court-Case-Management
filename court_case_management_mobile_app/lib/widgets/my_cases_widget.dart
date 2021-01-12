@@ -53,6 +53,7 @@ class _MyCasesState extends State<MyCases> {
         child: Card(
           shadowColor: Colors.white,
           elevation: 8,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           child: Row(
             children: [
               Expanded(
