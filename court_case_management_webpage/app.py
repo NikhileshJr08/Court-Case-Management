@@ -82,7 +82,7 @@ def profile():
     sql = "SELECT id, fir_no FROM cases WHERE u_id ='"+resp.json()["id"]+"';"
     mycursor.execute(sql)
     cases = mycursor.fetchall()
-    return render_template("profile.html",profile = resp.json() ,result = cases , form=form)
+    return render_template("profile2.html",profile = resp.json() ,result = cases , form=form)
 
 @blueprint.session.authorization_required
 @app.route('/case/<cid>' ,)
