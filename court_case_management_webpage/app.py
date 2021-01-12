@@ -32,7 +32,7 @@ os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
 app.config['SECRET_KEY'] = 'qwertyuiop'
 blueprint = make_google_blueprint(client_id='198564324530-vlv26uhtdaps87bq00gsuom36q2h91dk.apps.googleusercontent.com',
         client_secret='hWyKUQ6XYcB_21y1XfL3NBsf',
-        offline=True , scope= ['profile','email','openid'])
+        offline=True , scope= ['profile'])
 
 app.register_blueprint(blueprint,url_prefix='/login')
 api.add_resource(Caselist, '/clist/<string:uid>')
@@ -60,7 +60,7 @@ def logout():
     return redirect(url_for('index'))
 
 @blueprint.session.authorization_required
-@app.route('/profile' ,)
+@app.route('/profile' ,methods=['POST','GET'])
 def profile():
     resp = google.get("/oauth2/v1/userinfo")
     assert resp.ok, resp.text
@@ -69,23 +69,23 @@ def profile():
     sql = "SELECT id , name FROM lawyers ;"
     mycursor.execute(sql)
     lawyers = mycursor.fetchall()
-    form.prosecutor.choices = lawyers
-    form.defender.choices = lawyers
+    form.prosecutor.choices = [(l[0],l[1]) for l in lawyers]
+    form.defender.choices = [(l[0],l[1]) for l in lawyers]
 
     if form.validate_on_submit():
 
-        sql = "INSERT INTO cases (u_id, party_name, prosecutor, defendant, defender, fir_no, case_type, status, verdict) VALUES('"+ +"','"+form.party_name.data+"','"+form.prosecutor.data+"','"+form.defendant.data+"','"+form.defender.data+"','"+form.fir_no.data+"','"+form.case_type.data+"','"+form.status.data+"','"+form.verdict.data+"');"
+        sql = "INSERT INTO cases (u_id, party_name, p_id, defendant, d_id, fir_no, case_type, status, verdict) VALUES('"+resp.json()['id']+"','"+form.party_name.data+"','"+str(form.prosecutor.data)+"','"+form.defendant.data+"','"+str(form.defender.data)+"','"+form.fir_no.data+"','"+form.case_type.data+"','"+form.status.data+"','"+form.verdict.data+"');"
         mycursor.execute(sql)
         db.commit()
         #remember to implement SESSION protocol for u_id
 
-    sql = "SELECT id, fir_no FROM cases WHERE u_id ='"+resp.json()["id"]+"';"
+    sql = "SELECT id,fir_no FROM cases WHERE u_id ='"+resp.json()['id']+"';"
     mycursor.execute(sql)
     cases = mycursor.fetchall()
-    return render_template("profile2.html",profile = resp.json() ,result = cases , form=form)
+    return render_template("profile2.html",profile = resp.json() ,result = cases , addform=form)
 
 @blueprint.session.authorization_required
-@app.route('/case/<cid>' ,)
+@app.route('/case/<cid>' ,methods=['POST'])
 def case(cid):
     update = CaseUpdate()
     if update.validate_on_submit():
