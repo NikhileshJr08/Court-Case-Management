@@ -7,11 +7,11 @@ class Case(FlaskForm):
     prosecutor = SelectField("Prosecution Lawyer" , coerce = int, validators=[InputRequired()])
     defendant = StringField("Defendant: " , validators=[InputRequired() , Length(max=20) ])
     defender =  SelectField("Defense Lawyer" , coerce = int , validators=[InputRequired()])
-    fir_no = IntegerField("Fir No:" , validators=[InputRequired() ,  Length(max=20) ] )
+    fir_no = StringField("Fir No:" , validators=[InputRequired() ,  Length(max=20) ] )
     case_type = StringField("Case type:" ,validators=[InputRequired() ,  Length(max=20) ] )
     status =  StringField("Case Status:" , validators=[InputRequired() ,  Length(max=20) ] )
     verdict = TextField("Verdict:")
-
+    submit = SubmitField("Add case")
 class Hearing(FlaskForm):
     date = DateField("Date (yyyy-mm-dd):" , validators=[InputRequired()] )
     judge =  StringField("Judge:" , validators=[InputRequired() ,  Length(max=20) ])
@@ -19,7 +19,8 @@ class Hearing(FlaskForm):
     end = TimeField("End time",validators=[InputRequired()])
     location = StringField("Location :" , validators=[InputRequired() ,  Length(max=20) ])
     next = DateField("Next hearing (yyyy-mm-dd) :" )
-
+    submit = SubmitField("Add Hearing")
 class CaseUpdate(FlaskForm):
     status =  StringField("Case Status:" , validators=[InputRequired() ,  Length(max=20) ] )
     verdict = TextField("Verdict:" , validators=[InputRequired()])
+    submit = SubmitField("Update Case")
