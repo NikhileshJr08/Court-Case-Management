@@ -18,6 +18,32 @@ class HearingScreen extends StatelessWidget {
         ),
         elevation: 10,
       ),
+      body: SingleChildScrollView(
+        child: ListView(
+          children: [
+            DataTable(
+              columns: [
+                DataColumn(
+                  label: Text('Date'),
+                ),
+                DataColumn(
+                  label: Text('Judge'),
+                ),
+                DataColumn(
+                  label: Text('Start Time'),
+                ),
+                DataColumn(
+                  label: Text('End Time'),
+                ),
+                DataColumn(
+                  label: Text('Next Hearing'),
+                ),
+              ],
+              rows: [], //to be filled after the rest api is deployed and works properly.
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
